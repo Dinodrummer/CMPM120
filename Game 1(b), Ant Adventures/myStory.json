@@ -1,0 +1,202 @@
+{
+    "Title": "Ant Adventures",
+    "Credits": "Created by JT Gruber!",
+    "InitialLocation": "Home",
+    "Locations": {
+        "Home": {
+            "Body": "<i>YAAAAWWWWWWWNNNNNNNN</i><br>Good morning world, and all who inhabit it!<br>Let's go outside, and see what's up in this ant world! (<i>you're an ant, by the way.</i>)",
+            "Choices": [
+                {
+                    "Text": "Go Outside",
+                    "Target": "Outside House"
+                }
+            ]
+        },
+        "Outside House": {
+            "Body": "A guard is standing at your doorstep as you exit your home.<br>\"HEY YOU! You've been enlisted in the military. Your task is to find food for the colony.\"",
+            "Choices": [
+                {
+                    "Text": "Go to Wilderness",
+                    "Target": "Wilderness"
+                }
+            ]
+        },
+        "Wilderness": {
+            "Body": "You step outside of your colony, scared of what dangers might face you.<br>But you need to find food for the colony, and your queen!<br>You see two pathways, one with tall grass ahead, and the other opening out into a large field.",
+            "Choices": [
+                {
+                    "Text": "Go to Tall Grass",
+                    "Target": "Tall Grass"
+                },
+                {
+                    "Text": "Go to Field",
+                    "Target": "Field"
+                }
+            ]
+        },
+        "Tall Grass": {
+            "Body": "You go into the tall grass, and find some food!<br>It doesn't look like it'll be enough right now... you can either carry it back home now or search for a larger piece of food.",
+            "Choices": [
+                {
+                    "Text": "Go back with the food",
+                    "Target": "Home2"
+                },
+                {
+                    "Text": "Go further",
+                    "Target": "Taller Grass"
+                }
+            ]
+        },
+        "Taller Grass": {
+            "Body": "Oh no! There's an anteater! Hopefully you have something to fend it off...",
+            "Choices": [
+                {
+                    "Text": "Oh no...",
+                    "Target": "Bad Ending"
+                },
+                {
+                    "Text": "Try to intimidate it",
+                    "Target": "Intimidate2"
+                }
+            ]
+        },
+        "Intimidate": {
+            "Body": "The anteater didn't like that. It steps closer, as if wanting to eat you!",
+            "Choices": [
+                {
+                    "Text": "Uh oh...",
+                    "Target": "Taller Grass"
+                }
+            ]
+        },
+        "Field": {
+            "Body": "You see a purple flower a bit of a ways in the distance. Do you go get it?",
+            "Choices": [
+                {
+                    "Text": "Go back",
+                    "Target": "Wilderness"
+                },
+                {
+                    "Text": "Go get the flower",
+                    "Target": "Get Flower"
+                }
+            ]
+        },
+        "Get Flower": {
+            "Body": "You got the flower! It's getting dark though, maybe you should head back.",
+            "SetVariable": {"hasFlower": true},
+            "Choices": [
+                {
+                    "Text": "Go back",
+                    "Target": "Home2"
+                }
+            ]
+        },
+
+
+
+        "Home2": {
+            "Body": "<i>YAAAAWWWWWWWNNNNNNNN</i><br>Good morning world, and all who inhabit it!<br>Another day in the colony! Let's go outside.",
+            "Choices": [
+                {
+                    "Text": "Go Outside",
+                    "Target": "Wilderness2"
+                }
+            ]
+        },
+        "Wilderness2": {
+            "Body": "You step outside of your colony, scared of what dangers might face you.<br>But you need to find food for the colony, and your queen!<br>You see two pathways, one with tall grass ahead, and the other opening out into a large field.",
+            "Choices": [
+                {
+                    "Text": "Go to Tall Grass",
+                    "Target": "Tall Grass2"
+                },
+                {
+                    "Text": "Go to Field",
+                    "Target": "Field2"
+                }
+            ]
+        },
+        "Tall Grass2": {
+            "Body": "You go into the tall grass. Do you want to head back, or continue looking for a larger piece of food?",
+            "Choices": [
+                {
+                    "Text": "Go back",
+                    "Target": "Wilderness2"
+                },
+                {
+                    "Text": "Go further",
+                    "Target": "Taller Grass2"
+                }
+            ]
+        },
+        "Taller Grass2": {
+            "Body": "Oh no! There's an anteater! Hopefully you have something to fend it off...",
+            "Choices": [
+                {
+                    "Text": "Use the flower!",
+                    "Target": "Use Flower",
+                    "Condition": "hasFlower"
+                },
+                {
+                    "Text": "Try to intimidate it",
+                    "Target": "Intimidate2"
+                },
+                {
+                    "Text": "I don't have anything!",
+                    "Target": "Bad Ending"
+                }
+            ]
+        },
+        "Intimidate2": {
+            "Body": "The anteater didn't like that. It steps closer, as if wanting to eat you!",
+            "Choices": [
+                {
+                    "Text": "Uh oh...",
+                    "Target": "Taller Grass2"
+                }
+            ]
+        },
+        "Use Flower": {
+            "Body": "The anteater runs off.<br>You did it! Good job!<br>And look, theres a large piece of food here too! Let's take it back to the colony.",
+            "Choices": [
+                {
+                    "Text": "Go back with the food",
+                    "Target": "Good Ending"
+                }
+            ]
+        },
+        "Field2": {
+            "Body": "You see a purple flower a bit of a ways in the distance. Do you go get it?",
+            "Choices": [
+                {
+                    "Text": "Go back",
+                    "Target": "Wilderness2"
+                },
+                {
+                    "Text": "Go get the flower",
+                    "Target": "Get Flower2"
+                }
+            ]
+        },
+        "Get Flower2": {
+            "Body": "You got the flower! It's getting dark though, maybe you should head back.",
+            "Choices": [
+                {
+                    "Text": "Go back",
+                    "Target": "Bad Ending"
+                }
+            ]
+        },
+        "Bad Ending": {
+            "Body": "You didn't get enough food for the colony!",
+            "Choices": [
+            ]
+        },
+        "Good Ending": {
+            "Body": "You did it! Your colony survives another season.",
+            "Choices": [
+            ]
+        }
+    }
+}

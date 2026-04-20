@@ -21,7 +21,7 @@ let config = {
     },
     width: 800,
     height: 600,
-    scene: [Smiley]
+    scene: [Smiley, MouseSmiley]
 }
 
 // A convenience object that contains all sprites

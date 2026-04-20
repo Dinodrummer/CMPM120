@@ -1,6 +1,6 @@
 class Start extends Scene {
     create() {
-        this.engine.setTitle(this.engine.storyData); // TODO: replace this text using this.engine.storyData to find the story title
+        this.engine.setTitle(this.engine.storyData.Title); // TODO: replace this text using this.engine.storyData to find the story title
         this.engine.addChoice("Start");
     }
 
@@ -16,7 +16,7 @@ class Location extends Scene {
         
         if(length(key.locationData.choice) > 0) { // TODO: check if the location has any Choices
             for(let choice of key.locationData.choice) { // TODO: loop over the location's Choices
-                this.engine.addChoice("action text"); // TODO: use the Text of the choice
+                this.engine.addChoice(choice.Text, choice); // TODO: use the Text of the choice
                 // TODO: add a useful second argument to addChoice so that the current code of handleChoice below works
             }
         } else {
