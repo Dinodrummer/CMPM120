@@ -1,0 +1,38 @@
+{
+    "activeFile": "TopDownWorld/TinyTownMap.tmx",
+    "expandedProjectPaths": [
+        "TopDownWorld/src/Scenes",
+        ".",
+        "TopDownWorld/src",
+        "TopDownWorld"
+    ],
+    "fileStates": {
+        "TopDownWorld/TinyTownMap.tmx": {
+            "scale": 3.0221875,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 79.90900630751732,
+                "y": 79.90900630751733
+            }
+        },
+        "TopDownWorld/TinyTownMap.tmx#tiny-town-packed": {
+            "scaleInDock": 1
+        }
+    },
+    "last.exportedFilePath": "C:/Users/jtgru/OneDrive/Documents/CMPM120/TopDownWorld",
+    "last.imagePath": "C:/Users/jtgru/OneDrive/Documents/CMPM120/TopDownWorld/assets",
+    "map.lastUsedExportFilter": "All Files (*)",
+    "map.lastUsedFormat": "tmx",
+    "openFiles": [
+        "TopDownWorld/TinyTownMap.tmx"
+    ],
+    "project": "TinyTown.tiled-project",
+    "recentFiles": [
+        "TopDownWorld/TinyTownMap.tmx"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}
