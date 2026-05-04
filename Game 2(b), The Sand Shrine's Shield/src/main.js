@@ -21,7 +21,7 @@ let config = {
     },
     width: 800,
     height: 600,
-    scene: [Level1],
+    scene: [Level1, Restart],
     physics: { default: 'arcade' }
     /* -------- DEBUG --------
         physics: { default: 'arcade',
