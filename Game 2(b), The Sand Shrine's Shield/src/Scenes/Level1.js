@@ -5,7 +5,6 @@ class Level1 extends Phaser.Scene {
         super("levelScene");
 
         this.nextEnemySpawnTime = 0;
-        this.score = 0;
     }
 
     preload() {
@@ -27,10 +26,21 @@ class Level1 extends Phaser.Scene {
         this.load.audio("shoot", "shoot-e.ogg");
         this.load.audio("hurt", "hurt-a.ogg");
 
+        this.load.image("tilemap_tiles", "tilemap_packed.png");
+        this.load.tilemapTiledJSON("map", "tilemap.json");
+
 
     }
 
     create() {
+        this.score = 0;
+        const map = this.make.tilemap({ key: "map" });
+        const tileset = map.addTilesetImage("tilemap_packed", "tilemap_tiles");
+
+        this.backgroundLayer = map.createLayer("Background", tileset, 0, 0);
+        this.objectsLayer = map.createLayer("Objects", tileset, 0, 0);
+        this.backgroundLayer.setScale(2.5);
+        this.objectsLayer.setScale(2.5);
         this.width = this.sys.game.config.width;
         this.height = this.sys.game.config.height;
 
@@ -55,6 +65,14 @@ class Level1 extends Phaser.Scene {
             my.sprite.hurt.play();
             this.score += 10;
             this.scoreText.setText("SCORE: " + this.score);
+        });
+
+        this.objectsLayer.setCollisionByExclusion([-1]);
+        this.physics.add.collider(this.player.bulletGroup, this.objectsLayer, (bullet) => {
+            bullet.destroy();
+        });
+        this.physics.add.collider(this.enemyBulletGroup, this.objectsLayer, (bullet) => {
+            bullet.destroy();
         });
 
         this.physics.add.overlap(this.enemyBulletGroup, this.player, (bullet, player) => {
@@ -109,7 +127,6 @@ class Level1 extends Phaser.Scene {
         }
 
         this.enemyBulletGroup.children.each(bullet => {
-            bullet.y += 200 * dt;
             if (bullet.y > this.height) bullet.destroy();
         });
     }
