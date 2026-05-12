@@ -14,10 +14,10 @@ class Player extends Phaser.GameObjects.Sprite {
         this.nextWalkFrameTime = 0;
         this.nextShotTime = 0;
 
-        // Create a physics group for bullets
+
         this.bulletGroup = scene.physics.add.group();
 
-        // Setup keys
+
         this.AKey = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         this.DKey = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
         this.SpaceKey = scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
@@ -41,7 +41,6 @@ class Player extends Phaser.GameObjects.Sprite {
             }
         }
 
-        // Animation Toggle
         if (this.AKey.isDown || this.DKey.isDown) {
             if (time >= this.nextWalkFrameTime) {
                 let nextFrame = (this.texture.key === "playerMove1") ? "playerMove2" : "playerMove1";
@@ -52,19 +51,19 @@ class Player extends Phaser.GameObjects.Sprite {
             this.setTexture("playerIdle");
         }
 
-        // Firing Logic
         if (this.SpaceKey.isDown && time > this.nextShotTime) {
             let bullet = this.bulletGroup.create(this.x, this.y - 20, "bullet");
             bullet.body.setSize(4, 4, true);
             bullet.setScale(2);
-            bullet.body.setVelocityY(-400); // Set speed once, physics handles the rest!
-            this.nextShotTime = time + 300;
+            bullet.body.setVelocityY(-500);
+            this.nextShotTime = time + 400;
+            my.sprite.shoot.play();
         }
 
-        // Apply movement
+
         this.x += charSpeedX * dt;
 
-        // Cleanup bullets that go off-screen
+
         this.bulletGroup.children.each(function (bullet) {
             if (bullet.y < -10) {
                 bullet.destroy();
